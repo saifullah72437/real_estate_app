@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:real_estate_app/Screens/bookingScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -68,11 +69,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: BlurryContainer(
                   blur: 6,
                   width: double.infinity,
-                  height: 400,
+                  height: 600,
                   elevation: 0,
                   color: Colors.transparent,
                   padding: const EdgeInsets.all(0),
-                  borderRadius: const BorderRadius.all(Radius.circular(25)),
+                  // borderRadius: const BorderRadius.all(Radius.circular(25)),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
@@ -219,14 +221,30 @@ class _HomeScreenState extends State<HomeScreen> {
                              width: 40,
                              decoration: BoxDecoration(
                                color: Colors.black,
-                               borderRadius: BorderRadius.circular(20)
+                              borderRadius: BorderRadius.circular(20)
                              ),
                              child: Icon(CupertinoIcons.arrow_up_right, color: Colors.white,),
                            )
                           ],
                         ),
                       ),
-                    )
+                    ),
+                        SizedBox(height: 10,),
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>BookinScreen()));
+                          },
+                          child: Container(
+
+                            width: double.infinity,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(25)
+                            ),
+                            child: Center(child: Text('Book now', style: GoogleFonts.poppins(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold),)),
+                          ),
+                        )
                       ],
                     ),
                   ),
